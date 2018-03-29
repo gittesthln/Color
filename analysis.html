@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/ecmascript" src="analyse.js"></script>
+    <script type="text/ecmascript">
+      window.onload = function(){
+        document.getElementById("Go").addEventListener("click",function(){
+          let URL = document.getElementById("URL");
+          if(!URL.value){
+            alert("URLが不正です。");
+          }
+          let XHR = new XMLHttpRequest();
+          XHR.onreadystatechange = function(){
+          if(XHR.readyState == 4 && XHR.status == 200) {
+            analyze(XHR.responseText);
+          } 
+        }
+        XHR.open("POST", `getURL.php`, true);
+        XHR.setRequestHeader("Content-type",
+                             "application/x-www-form-urlencoded");
+//        XHR.send(`URL=${(JSON.stringify(URL.value.split("/")))}`);
+        XHR.send(`URL=${encodeURIComponent(URL.value)}`);        })
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      URL<input type="text" id="URL" size="40"/>
+      <input type="button" value="実行" id="Go"/>
+    </form>
+  </body>
+</html>

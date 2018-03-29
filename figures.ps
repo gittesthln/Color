@@ -1,0 +1,38 @@
+/Size 200 def
+/R     60 def
+/Left  [255 0 0   128 0 0 50 0 0   0   0   0] def
+/Right [255 0 0   120 0 0 50 0 0 128 128 128] def
+/Margin  20 def
+/No     Left length 3 idiv 1 sub def
+
+/DrawRect{
+    0 0 moveto exch dup 0 lineto exch dup 3 1 roll lineto
+    0  exch  lineto closepath
+} def
+/DrawCircle {
+    1 360 arc closepath 
+} def
+/SetRGBColor{
+    3 { 255 div 3 1 roll} repeat
+    setrgbcolor
+} def
+/DrawFigs{
+    gsave
+        aload pop SetRGBColor
+        No {
+            Size 0.5 add dup DrawRect fill
+            gsave
+                SetRGBColor
+                Size 2 div dup R DrawCircle fill
+            grestore
+            0 Size translate
+        } repeat
+    grestore
+} def
+    
+%25.4 72 div dup neg scale
+Margin Margin translate
+
+Left DrawFigs
+Size 0 translate
+Right DrawFigs

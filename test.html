@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script type="text/ecmascript" src="UI-rev.js"></script>
+    <script type="text/ecmascript">
+      window.onload = function(){
+      let place = DOMObject.getElmId("place");
+      let A=new SetColor("RGB", "rgb", place, function(V){
+         console.log(`${A}`)});
+      let B=new SetColor("HSL", "hsl", place, function(V){
+               console.log(`${B}`)});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="place"></div>
+  </body>
+</html>

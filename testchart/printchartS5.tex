@@ -1,0 +1,16 @@
+\documentclass[a4j]{jarticle}
+\usepackage{graphicx}
+\setlength{\unitlength}{1cm}
+\newcommand{\Chart}[1]{%
+\begin{picture}(10,20)(1,0)
+\put(0,-4.5){\rotatebox{90}{\includegraphics[width=26cm]{testchart#1.eps}}}
+\end{picture}
+\newpage}
+\pagestyle{empty}
+\begin{document}\vspace*{-1cm}
+\Chart{S3}
+\Chart{S5}
+\Chart{S8}
+\Chart{S10}
+\Chart{S15}
+\end{document}
