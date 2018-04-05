@@ -1,69 +1,60 @@
-This is e-pTeX, Version 3.1415926-p3.2-110825-2.3 (sjis) (TeX Live 2011/W32TeX) (format=platex 2011.12.21)  3 APR 2018 05:10
+This is e-pTeX, Version 3.14159265-p3.8.0-180121-2.6 (sjis) (TeX Live 2017/W32TeX) (preloaded format=platex 2018.2.6)  5 APR 2018 08:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**printchartHS2
+**./printchartHS2.tex
 (./printchartHS2.tex
-pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2011/06/27> patch level 0)
-Babel <v3.8m> and hyphenation patterns for english, german-x-2009-06-19, ngerma
-n-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabic, armenian, basque, bulg
-arian, catalan, pinyin, coptic, croatian, czech, danish, dutch, ukenglish, usen
-glishmax, esperanto, estonian, ethiopic, farsi, finnish, french, galician, germ
-an, ngerman, swissgerman, monogreek, greek, hungarian, icelandic, assamese, ben
-gali, gujarati, hindi, kannada, malayalam, marathi, oriya, panjabi, tamil, telu
-gu, indonesian, interlingua, irish, italian, kurmanji, lao, latin, latvian, lit
-huanian, mongolian, mongolianlmc, bokmal, nynorsk, polish, portuguese, romanian
-, russian, sanskrit, serbian, serbianc, slovak, slovenian, spanish, swedish, tu
-rkish, turkmen, ukrainian, uppersorbian, welsh, dumylang, nohyphenation, loaded
-.
-(c:/w32tex/share/texmf/tex/platex/base/jarticle.cls
-Document Class: jarticle 2006/06/27 v1.6 Standard pLaTeX class
-\c@@paper=\count81
-(c:/w32tex/share/texmf/tex/platex/base/jsize10.clo
-File: jsize10.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
+pLaTeX2e <2017/10/28>+4 (based on LaTeX2e <2017-04-15>)
+Babel <3.17> and hyphenation patterns for 84 language(s) loaded.
+(c:/usr/local/share/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2017/09/19 v1.7g Standard pLaTeX class
+\c@@paper=\count82
+(c:/usr/local/share/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2017/09/19 v1.7g Standard pLaTeX file (size option)
 )
-\c@part=\count82
-\c@section=\count83
-\c@subsection=\count84
-\c@subsubsection=\count85
-\c@paragraph=\count86
-\c@subparagraph=\count87
-\c@figure=\count88
-\c@table=\count89
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \symmincho=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
-(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 601.
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 613.
 \toclineskip=\dimen118
 \@lnumwidth=\dimen119
 \bibindent=\dimen120
-\heisei=\count90
+\heisei=\count91
 )
-(c:/w32tex/share/texmf/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(c:/usr/local/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/w32tex/share/texmf/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+(c:/usr/local/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-(c:/w32tex/share/texmf/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+(c:/usr/local/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/w32tex/share/texmf/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+(c:/usr/local/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(c:/w32tex/share/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(c:/usr/local/share/texmf-dist/tex/latex/config/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 99.
 
-(c:/w32tex/share/texmf/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(c:/usr/local/share/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
-) (./printchartHS2.aux)
+)
+(./printchartHS2.aux)
 \openout1 = `printchartHS2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -82,18 +73,20 @@ LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
+File: testchart002.eps Graphic file (type eps)
+ <testchart002.eps> [1
+
+]
 File: testchart1.eps Graphic file (type eps)
-
-<testchart1.eps> [1
-
-] (./printchartHS2.aux) ) 
+ <testchart1.eps> [2]
+(./printchartHS2.aux) ) 
 Here is how much of TeX's memory you used:
- 561 strings out of 494060
- 6463 string characters out of 3159717
- 58399 words of memory out of 3000000
- 4053 multiletter control sequences out of 15000+200000
- 7511 words of font info for 31 fonts, out of 3000000 for 9000
- 745 hyphenation exceptions out of 8191
- 25i,4n,19p,214b,193s stack positions out of 5000i,500n,10000p,500000b,50000s
+ 610 strings out of 493619
+ 7321 string characters out of 6150070
+ 64428 words of memory out of 5000000
+ 4279 multiletter control sequences out of 15000+600000
+ 7511 words of font info for 31 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 25i,4n,22p,220b,195s stack positions out of 5000i,500n,10000p,500000b,80000s
 
-Output written on printchartHS2.dvi (1 page, 236 bytes).
+Output written on printchartHS2.dvi (2 pages, 392 bytes).
