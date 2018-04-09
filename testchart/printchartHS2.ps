@@ -1,8 +1,8 @@
 %!PS-Adobe-2.0
 %%Creator: dvips(k) 5.997 Copyright 2017 Radical Eye Software
 %%Title: printchartHS2.dvi
-%%CreationDate: Mon Apr 09 06:23:20 2018
-%%Pages: 4
+%%CreationDate: Mon Apr 09 07:56:00 2018
+%%Pages: 5
 %%PageOrder: Ascend
 %%BoundingBox: 0 0 596 842
 %%DocumentPaperSizes: a4
@@ -11,7 +11,7 @@
 %DVIPSCommandLine: C:\usr\local\bin\dvips.exe -Ppdf -z -f
 %+ printchartHS2.dvi
 %DVIPSParameters: dpi=8000
-%DVIPSSource:  TeX output 2018.04.09:0723
+%DVIPSSource:  TeX output 2018.04.09:0855
 %%BeginProcSet: tex.pro 0 0
 %!
 /TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
@@ -207,6 +207,135 @@ TeXDict begin
 %%Page: 1 1
 TeXDict begin HPSdict begin 1 0 bop -1777 80326 a @beginspecial
 8 @llx 43 @lly 552 @urx 947 @ury 7653 @rhi @setspecial
+%%BeginDocument: testchart005.eps
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 8 43 552 947
+%%Title: C:\usr\local\teluhiko\GitHub\Color\testchart\testchartHS2.ps
+%%Creator: GSview from C:\usr\local\teluhiko\GitHub\Color\testchart\testchartHS2.ps
+%%CreationDate: Mon Apr 02 19:30:21 2018
+%%Pages: 1
+%%EndComments
+%%Page: 1 1
+%%BeginDocument: C:\usr\local\teluhiko\GitHub\Color\testchart\testchartHS2.ps
+/HSL2RGB {
+    100 div 3 1 roll
+    100 div 3 1 roll
+    360 div 3 1 roll
+    hsl2rgb
+%		3 {255 mul round 3 1 roll) repeat
+} def
+/hsl2rgb{
+		/L exch def
+		/S exch def
+		/m2 L 0.5 le {L S 1 add mul}{L S add L S mul sub}ifelse def
+		/m1 L 2 mul m2 sub def
+    dup dup 1 3 div add hue2rgb 
+    exch hue2rgb
+    3 -1 roll 1 3 div sub hue2rgb
+} def
+
+/hue2rgb {
+		dup 0 lt {1 add}if
+		dup 1 gt {1 sub}if
+		dup 6 mul 1 lt{
+				m2 m1 sub mul 6 mul m1 add false
+		}{true} ifelse
+		{	dup 2 mul 1 lt
+        {	pop m2 false}{true} ifelse
+    }{false}ifelse
+		{	dup 3 mul 2 lt
+        {2 3 div exch sub m2 m1 sub mul 6 mul m1 add}
+				{pop m1} ifelse
+    }if
+}def
+
+
+/width  60 def
+/height 45 def
+/Top height def
+/Left  10 def
+
+%left top h s l Drawfig
+/DrawFig{
+		gsave
+				HSL2RGB	setrgbcolor
+				translate
+        newpath
+            0 0 moveto
+				    width 0 lineto
+				    width height lineto 0 height lineto
+				closepath
+				gsave
+            fill
+				grestore
+        0 0 0 setrgbcolor
+        stroke
+		grestore
+} def
+%left top h l DrawPattern
+/DrawPattern {
+    /hue exch def
+    /top exch def
+    HList {
+        /left left width add def
+        left top hue 4 -1 roll
+        exch
+        light DrawFig
+    } forall
+} def
+
+/Gray
+[
+%[   0   0  100]  
+[   0  11   95]  
+[   0  15   90]  
+[ -10  15   84]  
+[ -10  15   78]  
+[ -10  15   70]  
+[ -10  15   64]  
+[ -10  15   59]  
+[ -10  15   55]  
+[ -10  15   50]  
+[ -30  15   45]  
+[ -20  15   41]  
+[ -45  13   41]  
+[ -70  13   41]  
+[-100  13   41]  
+%[  10  13   30]  
+[  10  13   25]  
+[  10  10   20]  
+[  10  10   15]  
+[   6  10   10]  
+%[   6  10    5]  
+%[   0   0   0]
+] def
+Gray aload length {
+    aload pop
+    /light exch def
+    /saturation exch def
+    /hue exch def
+    /left Left def
+
+    [ 0 2] {
+        saturation add 
+        [-10 -5 0 5 10] {
+            hue add exch dup 3 1 roll
+            left Top 4 2 roll light DrawFig
+            /left left width add def
+        } forall
+        pop
+    } forall
+    /Top Top height add def
+} repeat
+
+%%EndDocument
+%%Trailer
+
+%%EndDocument
+ @endspecial eop end end
+%%Page: 2 2
+TeXDict begin HPSdict begin 2 1 bop -1777 82504 a @beginspecial
+8 @llx 43 @lly 552 @urx 947 @ury 7653 @rhi @setspecial
 %%BeginDocument: testchart004.eps
 %!PS-Adobe-3.0 EPSF-3.0
 %%BoundingBox: 8 43 552 947
@@ -331,8 +460,8 @@ Gray aload length {
 
 %%EndDocument
  @endspecial eop end end
-%%Page: 2 2
-TeXDict begin HPSdict begin 2 1 bop -1777 82504 a @beginspecial
+%%Page: 3 3
+TeXDict begin HPSdict begin 3 2 bop -1777 82504 a @beginspecial
 8 @llx 43 @lly 552 @urx 947 @ury 7653 @rhi @setspecial
 %%BeginDocument: testchart003.eps
 %!PS-Adobe-3.0 EPSF-3.0
@@ -458,8 +587,8 @@ Gray aload length {
 
 %%EndDocument
  @endspecial eop end end
-%%Page: 3 3
-TeXDict begin HPSdict begin 3 2 bop -1777 82504 a @beginspecial
+%%Page: 4 4
+TeXDict begin HPSdict begin 4 3 bop -1777 82504 a @beginspecial
 8 @llx 43 @lly 552 @urx 947 @ury 7653 @rhi @setspecial
 %%BeginDocument: testchart002.eps
 %!PS-Adobe-3.0 EPSF-3.0
@@ -585,8 +714,8 @@ Gray aload length {
 
 %%EndDocument
  @endspecial eop end end
-%%Page: 4 4
-TeXDict begin HPSdict begin 4 3 bop -1777 82504 a @beginspecial
+%%Page: 5 5
+TeXDict begin HPSdict begin 5 4 bop -1777 82504 a @beginspecial
 8 @llx 43 @lly 552 @urx 947 @ury 7653 @rhi @setspecial
 %%BeginDocument: testchart1.eps
 %!PS-Adobe-3.0 EPSF-3.0

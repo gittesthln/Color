@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180121-2.6 (sjis) (TeX Live 2017/W32TeX) (preloaded format=platex 2018.2.6)  9 APR 2018 07:23
+This is e-pTeX, Version 3.14159265-p3.8.0-180121-2.6 (sjis) (TeX Live 2017/W32TeX) (preloaded format=platex 2018.2.6)  9 APR 2018 08:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -73,24 +73,27 @@ LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
-File: testchart004.eps Graphic file (type eps)
- <testchart004.eps> [1
+File: testchart005.eps Graphic file (type eps)
+ <testchart005.eps> [1
 
 ]
+File: testchart004.eps Graphic file (type eps)
+ <testchart004.eps> [2]
 File: testchart003.eps Graphic file (type eps)
- <testchart003.eps> [2]
-File: testchart002.eps Graphic file (type eps)
 
-<testchart002.eps> [3]
+<testchart003.eps> [3]
+File: testchart002.eps Graphic file (type eps)
+ <testchart002.eps> [4]
 File: testchart1.eps Graphic file (type eps)
- <testchart1.eps> [4] (./printchartHS2.aux) ) 
+ <testchart1.eps> [5]
+(./printchartHS2.aux) ) 
 Here is how much of TeX's memory you used:
- 616 strings out of 493619
- 7443 string characters out of 6150070
+ 619 strings out of 493619
+ 7504 string characters out of 6150070
  64428 words of memory out of 5000000
- 4283 multiletter control sequences out of 15000+600000
+ 4285 multiletter control sequences out of 15000+600000
  7511 words of font info for 31 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  25i,4n,22p,220b,195s stack positions out of 5000i,500n,10000p,500000b,80000s
 
-Output written on printchartHS2.dvi (4 pages, 704 bytes).
+Output written on printchartHS2.dvi (5 pages, 860 bytes).
