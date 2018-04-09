@@ -9,5 +9,7 @@
 \newpage}
 \pagestyle{empty}
 \begin{document}\vspace*{-1cm}
-\Chart{1}
+\Chart{003}%4/5
+\Chart{002}%4/5
+\Chart{1}  %4/4
 \end{document}
