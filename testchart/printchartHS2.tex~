@@ -9,6 +9,8 @@
 \newpage}
 \pagestyle{empty}
 \begin{document}\vspace*{-1cm}
+\Chart{006}%4/9
+\Chart{005}%4/9
 \Chart{004}%4/9
 \Chart{003}%4/5
 \Chart{002}%4/5
