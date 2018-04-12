@@ -34,7 +34,7 @@ for($i=0; $i<count($BGList);$i++) {
 list($BGH, $BGC, $BGL) = $Gray[$BGList[$i]];
 for($j = 0; $j <count($Gray); $j++) {
 if($BGList[$i]==$j) continue;
-list($CH, $CC, $CL) = $Gray[$j];
+list($CH, $CS, $CL) = $Gray[$j];
 $filename = "fig-$BGH-$BGS-$BGL-$CH-$CS-$CL.eps";
 print '\Fig{'. $filename ."}\n";
 $fp = fopen($filename, "w");
