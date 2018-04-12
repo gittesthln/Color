@@ -1,0 +1,25 @@
+\documentclass[a4j]{article}
+\usepackage{graphicx}
+\setlength{\hoffset}{-0.5cm}
+\setlength{\voffset}{-1cm}
+\addtolength{\textwidth}{2\oddsidemargin}
+\setlength{\textheight}{27cm}
+\setlength{\oddsidemargin}{0em}
+\setlength{\evensidemargin}{\oddsidemargin}
+\setlength{\topmargin}{0em}
+\setlength{\topskip}{0em}
+\setlength{\headsep}{0em}
+\setlength{\headheight}{0em}
+\newcommand{\Fig}[1]{%
+\fbox{%
+\begin{minipage}[t]{0.5\textwidth}
+ \begin{center}
+	\includegraphics{#1}\\
+	#1
+ \end{center}
+\end{minipage}}\ignorespaces}
+\pagestyle{empty}
+\begin{document}
+\noindent
+\input figs2.tex
+\end{document}
