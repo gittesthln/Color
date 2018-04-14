@@ -99,7 +99,7 @@ $no = 0;
 
 $BGList = [20,64]; 
 for($i=0; $i<count($BGList);$i++) {
-list($BGH, $BGC, $BGL) = $Gray[$BGList[$i]];
+list($BGH, $BGS, $BGL) = $Gray[$BGList[$i]];
 for($j = 0; $j <count($Gray); $j++) {
 if($BGList[$i]==$j) continue;
 list($CH, $CS, $CL) = $Gray[$j];
