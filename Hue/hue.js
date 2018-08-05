@@ -7,7 +7,7 @@ window.onload = function(){
     })
     let username;
     let url;
-    let animation =
+    let anim =
         document.getElementById("animation").getElementsByTagName("input");
     function getHTML(URL, method, body, func){
         let http = new XMLHttpRequest();
@@ -63,8 +63,8 @@ window.onload = function(){
                 input.value = status[p];
             };
         }
-        animation[2].removeAttribute("disabled");
-        animation[2].addEventListener("click",(E)=>{
+        anim[2].removeAttribute("disabled");
+        anim[2].addEventListener("click",(E)=>{
             console.log(E.target.value);
             if(E.target.value == "開始") {
                 E.target.value = "停止";
@@ -75,9 +75,9 @@ window.onload = function(){
         });
         function next(hue){
             let color =
-                {"hue":hue, "bri":animation[1].value-0,"sat":animation[0].value-0};
+                {"hue":hue, "bri":anim[1].value-0,"sat":anim[0].value-0};
 //            console.log(color);
-            if(animation[2].value == "停止") {
+            if(anim[2].value == "停止") {
                 getHTML(`${url}/1/state`,"PUT", color, null);
                 setTimeout(next, 100, (hue+200)%65536);
             }
