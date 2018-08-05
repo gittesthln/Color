@@ -76,7 +76,7 @@ window.onload = function(){
         function next(hue){
             let color =
                 {"hue":hue, "bri":animation[1].value-0,"sat":animation[0].value-0};
-            console.log(color);
+//            console.log(color);
             if(animation[2].value == "停止") {
                 getHTML(`${url}/1/state`,"PUT", color, null);
                 setTimeout(next, 100, (hue+200)%65536);
