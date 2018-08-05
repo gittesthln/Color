@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/ecmascript" src="hue.js"></script>
+  </head>
+  <body>
+    <form>
+      <div>IPアドレス<input type="text" size="10" id="ip"></input>
+        <input type="button" id="initialize" value="設定"></input>
+      </div>
+      <div>
+        <form>
+          <table id="animation">
+            <tr>
+              <td>彩度</td>
+              <td><input type="text" style="text-align:right" size="3"></input></td>
+            </tr>
+            <tr>
+              <td>明度</td>
+              <td><input type="text" style="text-align:right" size="3"></input></td>
+            </tr>
+            <tr>
+              <td><input type="button" value="開始" disabled></input></td>
+            <tr>
+          </table>
+      <div id="status"></div>
+    </form>
+  </body>
+</html>
