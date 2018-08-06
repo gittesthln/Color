@@ -16,8 +16,3 @@ $(T).pdf: $(T).dvi
 $(T).dvi: $(SRCSL)
 	$(LATEX) $(T)
 	$(LATEX) $(T)
-M = 00dev
-all:
-	make T=$(M) -B
-#	nkf -Sw $(M).aux |	grep newlabel > $(M)-tmp.aux
-	make T=$(M)Probs -B

@@ -1,0 +1,13 @@
+We know that the appearance of a color depnds on the colors nearby.
+Even though the circle color is the same in the square
+with the circle drawn in the center, the brightness of the circle seems
+to be different depending on the brightness of the background color.
+The brighter the background color looks darker than the dark one.　
+In this research,
+we prepared many printed samples with a slightly different brightness of the center circle and show them to subjects to select the same sample as the center brightness of the reference image.
+to the persons who choose the ones 
+that look the same brightness of the circles.
+
+The color of the samples are evaluated in the L*a*b* color space by a colorimeter.
+As a result, in the case that the lightness of the background color are 80 and 40,
+there is about 5 difference is obtained.
