@@ -14,8 +14,7 @@ window.onload = function(){
         getHTML(url,"GET",{},getStatus);
 		}										
 
-    let anim =
-        document.getElementById("animation").getElementsByTagName("input");
+    let anim = ocument.querySelectorAll("#animation input");
     function getHTML(URL, method, body, func){
         let http = new XMLHttpRequest();
         http.open(method, URL, true);
@@ -111,7 +110,7 @@ window.onload = function(){
     }
     function mkElm(P, elm, txt) {
         let e = document.createElement(elm);
-        e.innerText = txt;
+        if(txt) e.innerText = txt;
         if(P) P.appendChild(e);
         return e;
     }
