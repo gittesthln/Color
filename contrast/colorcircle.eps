@@ -1,12 +1,12 @@
 %!PS-Adobe-3.0 EPSF-3.0
-%%BoundingBox: 13 13 582 299
-%%Title: C:\usr\local\teluhiko\html\shimizu2\unitFig.ps
-%%Creator: GSview from C:\usr\local\teluhiko\html\shimizu2\unitFig.ps
-%%CreationDate: Thu Dec 14 14:51:50 2017
+%%BoundingBox: 112 112 682 682
+%%Title: C:\usr\local\teluhiko\GitTest\Color\contrast\color-circle.ps
+%%Creator: GSview from C:\usr\local\teluhiko\GitTest\Color\contrast\color-circle.ps
+%%CreationDate: Tue Aug 07 11:37:27 2018
 %%Pages: 1
 %%EndComments
 %%Page: 1 1
-%%BeginDocument: C:\usr\local\teluhiko\html\shimizu2\unitFig.ps
+%%BeginDocument: C:\usr\local\teluhiko\GitTest\Color\contrast\color-circle.ps
 /HSL2RGB {
     100 div 3 1 roll
     100 div 3 1 roll
@@ -39,31 +39,25 @@
     }if
 }def
 
-/size  100 def
-/R     30 def
-/bgColor1 {0 0 0} def
-/circleColor1 {0 100 50} def
+/size  60 def
+/R     20 def
+/Move  140 def
 
-/bgColor2 {0 0 50} def
-/circleColor2 {0 100 50} def
-
-/Left  5 def
-
-/DrawFig{
-    translate
-    0 0 moveto  0 size lineto  size size lineto  size 0 lineto
-    closepath
-    HSL2RGB setrgbcolor
-    fill
-    size 2 div dup R 0 360 arc
-    HSL2RGB setrgbcolor
-   fill
-} def
 
 72 25.4 div dup scale
+Move dup translate
+90 rotate
 
-circleColor1 bgColor1 Left dup DrawFig
-circleColor2 bgColor2 size 0 DrawFig
+0 30 350 {
+		dup
+		gsave
+				neg rotate
+				size 0 translate
+				100 50 HSL2RGB setrgbcolor
+				R 0 R 0 360 arc
+				fill
+		grestore
+} for
     
 
 %%EndDocument
