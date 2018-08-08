@@ -5,8 +5,12 @@ window.onload = function(){
     let initialize = document.getElementById("initialize");
     initialize.addEventListener("click",function(){
 				localStorage["IP"] = IP.value;
-        getHTML(`http://${IP.value}/api`, "POST",
-                {"devicetype":"my_device#access"}, getUserName);
+        if(IP.value) {
+            getHTML(`http://${IP.value}/api`, "POST",
+                    {"devicetype":"my_device#access"}, getUserName);
+        } else {
+            alert("ブリッジのIPアドレスを指定してください。");
+        }
     })
     let username = localStorage["username"]||"";console.log(username);
 		if(username) {
@@ -14,7 +18,18 @@ window.onload = function(){
         getHTML(url,"GET",{},getStatus);
 		}										
 
-    let anim = ocument.querySelectorAll("#animation input");
+    let anim = document.querySelectorAll("#animation input");
+    if(localStorage["Anim"]) {
+        JSON.parse(localStorage["Anim"]).forEach((P, i, O)=>{
+            anim[i].value = P;
+        });
+    }else {
+        localStorage["Anim"] = [];
+        Array.prototype.forEach.call(anim, (P, i, O)=>{
+            localStorage["Anim"][i] = P.value = 1000;
+        });
+    }       
+        console.log(localStorage["Anim"]);
     function getHTML(URL, method, body, func){
         let http = new XMLHttpRequest();
         http.open(method, URL, true);
@@ -43,42 +58,57 @@ window.onload = function(){
         }
     }
     function getStatus(result){    
+        let P = {"hue":"色相", "bri":"明度", "sat":"彩度"};
         let res = JSON.parse(result);console.log(res);
         let table = document.getElementById("status");
-        for( let valve in res) {
+        for(let valve in res) {
             let div = mkElm(table, "table", "");
             let tr = mkElm(div, "tr","");
             let td = mkElm(tr,"td", valve);
             let status = res[valve].state;
+            let inputs = {};
             td = mkElm(tr, "td", "");
-            let button = mkElm(td,"input", "");
-            button.setAttribute("type", "button");
-            button.setAttribute("value", status.on?"点灯":"消灯");
+            let button = mkElm(td,"input", "",
+                 {"type": "button", "value":status.on?"消灯":"点灯"});
             button.addEventListener("click",function(E){
                 let on = (E.target.value == "点灯");
                 E.target.value = on?"消灯":"点灯";
-                getHTML(`${url}/${valve}/state`,"PUT",{"on":!on}, setValues);
+                getHTML(`${url}/${valve}/state`,"PUT",{"on":on}, setValues);
             });
-            for( let p in {"hue":"色相", "bri":"明度", "sat":"彩度"}){
+            td = mkElm(tr, "td", "");
+            button = mkElm(td, "input", "", {"type":"button", "value":"設定"});
+            button.addEventListener("click",function(E){
+                console.log(inputs);
+                let O = {};
+                for(p in inputs){
+                    let val = inputs[p].value - 0;
+                    val = Math.max(val,0);
+                    inputs[p].value = O[p] = 
+                        (p=="hue")?(val % 65536): Math.min(val, 254);
+                }
+                getHTML(`${url}/${valve}/state`,"PUT", O, setValues);
+            });
+            button = mkElm(td, "input", "",
+                               {"type": "button","value":"開始"});
+            button.addEventListener("click",function(E){
+                if(button.value=="開始") {
+                    localStorage["Anim"]=JSON.stringify(
+                        Array.prototype.map.call(anim,(V)=>{return V.value}));
+                    console.log(localStorage["Anim"]);
+                    button.value = "停止";
+                    next(valve, inputs, button);
+                }else {
+                    button.value = "開始";
+                }
+            });
+            for(let p in P){
                 tr = mkElm(div, "tr","");
-                td = mkElm(tr, "td", p);
-                let input = mkElm(tr, "input","");
-                input.setAttribute("type","text");
-                input.setAttribute("size","5");
-                input.setAttribute("style","text-align:right");
-                input.value = status[p];
+                td = mkElm(tr, "td", P[p]);
+                inputs[p] =
+                    mkElm(tr, "input","", {"type":"text", "class":"number"});
+                inputs[p].value = status[p];
             };
         }
-        anim[2].removeAttribute("disabled");
-        anim[2].addEventListener("click",(E)=>{
-            console.log(E.target.value);
-            if(E.target.value == "開始") {
-                E.target.value = "停止";
-                setTimeout(next, 200, 0);
-            } else {
-                E.target.value = "開始";
-            }
-        });
 				let colors =[
 						{"hue":0,
 //						 "bri":100,
@@ -93,24 +123,31 @@ window.onload = function(){
 //						 "sat":  0
 						}
 				];
-        function next(index){
-            if(anim[2].value == "停止") {
+        function next(valve, inputs, button){
+            if(button.value == "停止") {
 								if(true){
-										let color =
-												{"hue":index, "bri":anim[1].value-0,"sat":anim[0].value-0};
-								    console.log(index);
-										getHTML(`${url}/3/state`,"PUT", color, null);
-										setTimeout(next, 500, (index+1000)%65535);
+										let color = {};
+                    for(p in inputs){
+                        color[p] = inputs[p].value-0;
+                        if(p == "hue"){
+                            inputs[p].value= (color[p]+(anim[0].value-0))%65536;
+                        }
+                    }
+										getHTML(`${url}/${valve}/state`,"PUT", color, null);
+										setTimeout(next, anim[1].value-0, valve, inputs, button);
 								} else {
-										getHTML(`${url}/3/state`,"PUT", colors[index], null);
+										getHTML(`${url}/1/state`,"PUT", colors[index], null);
 										setTimeout(next, 333, (index+1)%colors.length);
 								}
-						}
+						} 
         }
     }
-    function mkElm(P, elm, txt) {
+    function mkElm(P, elm, txt, attribs) {
         let e = document.createElement(elm);
         if(txt) e.innerText = txt;
+        for(let att in attribs){
+            e.setAttribute(att, attribs[att]);
+        }
         if(P) P.appendChild(e);
         return e;
     }

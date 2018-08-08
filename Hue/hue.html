@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="hue.css"/>
     <script type="text/ecmascript" src="hue.js"></script>
   </head>
   <body>
@@ -12,16 +13,13 @@
         <form>
           <table id="animation">
             <tr>
-              <td>彩度</td>
-              <td><input type="text" style="text-align:right" size="3"></input></td>
+              <td>変化量</td>
+              <td><input type="text" class="number"></input></td>
             </tr>
             <tr>
-              <td>明度</td>
-              <td><input type="text" style="text-align:right" size="3"></input></td>
+              <td>変化間隔</td>
+              <td><input type="text" class="number"></input>(ms)</td>
             </tr>
-            <tr>
-              <td><input type="button" value="開始" disabled></input></td>
-            <tr>
           </table>
       <div id="status"></div>
     </form>
