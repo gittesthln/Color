@@ -46,9 +46,7 @@ window.onload = function(){
 		}
 }
 function HSL2RGB(h, s, l){
-		let r, g, b;
-		[r, g, b] = hsl2rgb(h/360, s/100, l/100);//console.log([r,g,b]);
-		return[Math.round(r*255), Math.round(g*255),Math.round(b*255)];
+    return hsl2rgb(h/360, s/100, l/100).map((V)=>{return Math.round(V*255)});
 }
 function hsl2rgb(h, s, l) {
     let m1, m2;
