@@ -1,31 +1,12 @@
-<?php
-$BGH = 0;
-$BGS = 0;
-$BGL = 0;
-$CH =  0;
-$CS =  0;
-$no = 0;
-for($i=90; $i<=100;$i+=100) {
-  $BGH = $BGC = 0;
-  $BGL = $i;
-  for($j = 40; $j <=60; $j+=2) {
-    if($i==$j) continue;
-    $CH = $CS = 0;
-  	$CL= $j;
-    $filename = "fig-$BGL-$CL.eps";
-    print '\Fig{'. $filename ."}\n";
-    $fp = fopen($filename, "w");
-    fwrite($fp,
-<<<_EOL_
 %!PS-Adobe-3.0 EPSF-3.0
 %%BoundingBox: 13 13 243 243
-%%Title: C:\usr\local\teluhiko\html\shimizu2\unitfig1.ps
-%%Creator: GSview from C:\usr\local\teluhiko\html\shimizu2\unitfig1.ps
+%%Title: C:\usr\local	eluhiko\html\shimizu2\unitfig1.ps
+%%Creator: GSview from C:\usr\local	eluhiko\html\shimizu2\unitfig1.ps
 %%CreationDate: Fri Mar 02 12:42:53 2018
 %%Pages: 1
 %%EndComments
 %%Page: 1 1
-%%BeginDocument: C:\usr\local\teluhiko\html\shimizu2\unitfig1.ps
+%%BeginDocument: C:\usr\local	eluhiko\html\shimizu2\unitfig1.ps
 /HSL2RGB {
     100 div 3 1 roll
     100 div 3 1 roll
@@ -60,8 +41,8 @@ for($i=90; $i<=100;$i+=100) {
 /size  80 def
 /R     25 def
 
-/bgColor1 { $BGH $BGS $BGL} def
-/circleColor1 { $CH $CS $CL} def
+/bgColor1 { 0 0 90} def
+/circleColor1 { 0 0 44} def
 
 /Left  5 def
 
@@ -81,12 +62,3 @@ circleColor1 bgColor1 Left dup DrawFig
 
 %%EndDocument
 %%Trailer
-
-_EOL_
-);
-fclose($fp);
-$no++;
-if($no%2==0) print '\newline'."\n";
-}
-}
-?>

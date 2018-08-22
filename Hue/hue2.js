@@ -19,7 +19,6 @@ window.onload = function(){
 		}										
 
     let animData = (localStorage["Anim"])?JSON.parse(localStorage["Anim"]):{};
-    console.log(animData);
     function getHTML(URL, method, body, func){
         let http = new XMLHttpRequest();
         http.open(method, URL, true);
@@ -53,7 +52,6 @@ window.onload = function(){
         let res = JSON.parse(result);console.log(res);
         let table = document.getElementById("status");
         for(let valve in res) {
-            if(!res[valve].state.reachable) continue;
             let div = mkElm(table, "table", "");
             let tr = mkElm(div, "tr","");
             let td = mkElm(tr,"td", valve);
@@ -67,22 +65,12 @@ window.onload = function(){
                 E.target.value = on?"消灯":"点灯";
                 getHTML(`${url}/${valve}/state`,"PUT",{"on":on}, setValues);
             });
-            let trs = [];
-            for(let p in P){
-                trs.push(tr = mkElm(div, "tr",""));
-                td = mkElm(tr, "td", P[p]);
-                td = mkElm(tr, "td", "");
-                inputs[p] =
-                    mkElm(td, "input","", {"type":"text", "class":"number"});
-                inputs[p].value = status[p];
-            };
-            trs.push(tr = mkElm(div, "tr",""));
-            td = mkElm(tr, "td", "",{colspan:2,align:"center"});
+            td = mkElm(tr, "td", "");
             button = mkElm(td, "input", "", {"type":"button", "value":"設定"});
             button.addEventListener("click",function(E){
                 console.log(inputs);
                 let O = {};
-                for(p in P){
+                for(p in inputs){
                     let val = inputs[p].value - 0;
                     val = Math.max(val,0);
                     inputs[p].value = O[p] = 
@@ -90,27 +78,12 @@ window.onload = function(){
                 }
                 getHTML(`${url}/${valve}/state`,"PUT", O, setValues);
             });
-            let i=0;
-            for(let p in anim){
-                td = mkElm(trs[i], "td", anim[p]);
-                td = mkElm(trs[i], "td", "");
-                inputs[p] = mkElm(td,
-                       "input","", {"type":"text", "class":"number"});
-                inputs[p].value = animData[valve][p]?animData[valve][p]:
-                    (i?1100:11000);
-                i++;
-            };
-            td = mkElm(trs.pop(), "td", "",{colspan:2,align:"center"});
             button = mkElm(td, "input", "",
                                {"type": "button","value":"開始"});
             button.addEventListener("click",function(E){
                 if(button.value=="開始") {
-                    animData[valve] = {};
-                    for(let p in anim){
-                        animData[valve][p] = inputs[p].value-0;
-                    }
-                    console.log(animData);
-                    localStorage["Anim"]=JSON.stringify(animData);
+                    localStorage["Anim"]=JSON.stringify(
+                        Array.prototype.map.call(anim,(V)=>{return V.value}));
                     console.log(localStorage["Anim"]);
                     button.value = "停止";
                     next(valve, inputs, button);
@@ -118,6 +91,13 @@ window.onload = function(){
                     button.value = "開始";
                 }
             });
+            for(let p in P){
+                tr = mkElm(div, "tr","");
+                td = mkElm(tr, "td", P[p]);
+                inputs[p] =
+                    mkElm(tr, "input","", {"type":"text", "class":"number"});
+                inputs[p].value = status[p];
+            };
         }
 				let colors =[
 						{"hue":0,
@@ -140,11 +120,11 @@ window.onload = function(){
                     for(p in inputs){
                         color[p] = inputs[p].value-0;
                         if(p == "hue"){
-                            inputs[p].value= (color[p]+(inputs.step.value-0))%65536;
+                            inputs[p].value= (color[p]+(anim[0].value-0))%65536;
                         }
                     }
 										getHTML(`${url}/${valve}/state`,"PUT", color, null);
-										setTimeout(next, inputs.interval.value-0, valve, inputs, button);
+										setTimeout(next, anim[1].value-0, valve, inputs, button);
 								} else {
 										getHTML(`${url}/1/state`,"PUT", colors[index], null);
 										setTimeout(next, 333, (index+1)%colors.length);
