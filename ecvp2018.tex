@@ -79,7 +79,7 @@
 %%% Format it to your taste with the options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define some colors
-\iftrue
+\iffalse
 \selectcolormodel{cmyk}
 
 \definecolor{lightgray}{cmyk}{0,0,0,0.1}
@@ -206,7 +206,7 @@ The appearance of a color depends on the colors near it. In two squares
  will appear to differ depending on the brightness of their
  backgrounds. 
 
- \ShowFigS{{fig-0-50}{fig-90-50}}{0.1}{An effect of contrast}{contrast}
+ \ShowFigS{{fig-0-50}{fig-80-50}}{0.15}{An effect of contrast}{contrast}
  The brighter the background, the darker its circle
  appears.
 
@@ -218,13 +218,13 @@ The appearance of a color depends on the colors near it. In two squares
  We prepared many printed samples with center
  circles of varying brightness. The size of the sample is 8 cm and the
  diameter of the circle is 5 cm. The background colors are black and
- lightgray(90\% brightness) and the brightness of the center circles are
+ light gray(80\% brightness) and the brightness of the center circles are
  from 40\% to 60\% in every 2\% by HSL color value\cite{HSL}.
  These samples are printed by Epson PX5002 inkjet printer on the paper
  Epson Crispia.
 
-\ShowFigS{{fig-0-50}}{0.1}{The refference Figure}{fig1}
-\ShowFigS{{fig-90-52}{fig-90-54}{fig-90-56}}{0.1}{Example of
+\ShowFigS{{fig-0-50}}{0.1}{The refrerence Figure}{fig1}
+\ShowFigS{{fig-80-52}{fig-80-54}{fig-80-56}}{0.1}{Example of
  Samples(gray of brightness 52\%, 54\% and 56\%)}{fig2}
 The brightness of the backgrounds in Figures\ref{fig1} and \ref{fig2}
  are $0\%$ and $90\%$, respectively. 
@@ -232,11 +232,11 @@ The brightness of the backgrounds in Figures\ref{fig1} and \ref{fig2}
  We showed these samples to subjects and
  asked them to select a sample whose center circle has the same center
  brightness as the reference image. }
-  \headerbox{Measurement of Colors}
+  \headerbox{Evaluation  of Colors}
  {name=sample,column=0,below=sample,span=2}
- {Since the printed color depends on the equipmnts,
- we have measured the colors of athe samples by a colorimeter
- TCD100\cite{TCD100}. The colore differences are culculaed by Excel
+ {Since the printed color depends on the equipment,
+ we have evaluated colors of the samples by a colorimeter
+ TCD100\cite{TCD100}. The color differences are calculated by Excel
  datasheet given by \cite{CIEDE2000}.
   \begin{center}
 \refstepcounter{table}Table \arabic{table}: Color Values of the circles in
@@ -249,23 +249,95 @@ The brightness of the backgrounds in Figures\ref{fig1} and \ref{fig2}
 \multicolumn{1}{c|}{$a^*$} &
 \multicolumn{1}{c|}{$b^*$} &
 \multicolumn{1}{|c|}{$dE$} \\\hline
-  $0$&$0$ &$50$ &$-$ &$-$ & $-$& $0$\\\hline
-  $0$&$0$ &$52$ & & & & \\\hline
-  $0$&$0$ &$54$ & & & & \\\hline
-  $0$&$0$ &$56$ & & & & \\\hline
+  $0$&$0$ &$50$ &$55.9$ &$-1.2$ & $-0.8$& $0$\\\hline
+  $0$&$0$ &$52$ &$57.1$ &$-1.1$ &$-1.0$ &$1.1367$ \\\hline
+  $0$&$0$ &$54$ &$59.3$ &$-1.4$ &$-1.0$ & $3.1133$\\\hline
+  $0$&$0$ &$56$ &$61.6$ &$-1.1$ &$-0.9$ & $5.1065$\\\hline
  \end{tabular}
 \end{center}
 }
+ \headerbox{Chromatic Case}
+ {name=colorcase,column=2,row=0,span=2}{
+ In the previous experiment, the colors of the circles are achromatic.
+ Now we choose typical chromatic colors for the colors of circles:
+   \begin{center}
+\refstepcounter{table}Table \arabic{table}: Color Values of the circles in
+   Figure \ref{fig3}\\
+	\begin{tabular}[t]{|*{8}{r|}}\hline
+	 \multicolumn{3}{|c|}{HSL color value}&
+	 \multicolumn{3}{c|}{$L^*a*^b*$}&
+	 \multicolumn{2}{c|}{LCH value}\\\hline
+\multicolumn{1}{|c|}{$H$} &
+\multicolumn{1}{c|}{$S$} &
+\multicolumn{1}{c|}{$L$} &
+\multicolumn{1}{|c|}{$L^*$} &
+\multicolumn{1}{c|}{$a^*$} &
+\multicolumn{1}{c|}{$b^*$}&
+%											&\multicolumn{1}{|c|}{$dE$}
+\multicolumn{1}{c|}{\small Chroma}&
+\multicolumn{1}{c|}{Hue}
+			\\\hline
+    $0$&$90$ &$50$ &$43.1$ &$	76.3$ &  $30.9$ & $82.3$&$22.0$\\\hline
+   $60$&$90$ &$50$ &$83.4$ & $-3.7$ & $142.4$ &$140.6$ &$91.4$\\\hline
+  $120$&$90$ &$50$ &$46.1$ &$-57.7$ &  $14.6$ &$58.1$ &$166.1$\\\hline
+  $180$&$90$ &$50$ &$66.8$ &$-35.2$ & $-46.6$ &$58.4$ &$233.4$\\\hline
+  $240$&$90$ &$50$ &$30.3$ &$11.5$ &$-59.5$ &$59.4$ &$280.9$\\\hline
+  $300$&$90$ &$50$ &$62.7$ &$68.0$ &$-26.7$ &$72.5$ &$339.3$\\\hline
+ \end{tabular}
+	 \end{center}
+ In these cases, we choose 90 as saturation, because we percieve the
+ color of the circle with dark background vivider.
+ \ShowFigS{{fig-0-0-90-50}{fig-0-60-90-50}{fig-0-120-90-50}{fig-0-180-90-50}{fig-0-240-90-50}{fig-0-300-90-50}}{0.1}{The
+ reference Figures in color case}{fig3} 
+}
   \headerbox{Results}
- {name=results,column=2,row=0,span=2}{}
+ {name=results,column=2,below=colorcase,span=2}{
+ In the monocolor case, we percieve that the color of the circle of sample of
+ gray $56\%$ seems similar to the reference figure(Figure \ref{fig1}).
+
+ In the chromatic case, we prepare samples which saturations are $90\%$,
+ $95\%$ and $100\%$.
+The following table shows the chromatic cases:
+    \begin{center}
+\refstepcounter{table}Table \arabic{table}: Results in the chromatic case in
+   Figure \ref{fig3}\\
+	\begin{tabular}[t]{|*{9}{r|}}\hline
+	 \multicolumn{3}{|c|}{HSL color value}&
+	 \multicolumn{3}{c|}{$L^*a*^b*$}&
+	 \multicolumn{2}{c|}{LCH value}&\\\cline{1-8}
+\multicolumn{1}{|c|}{$H$} &
+\multicolumn{1}{c|}{$S$} &
+\multicolumn{1}{c|}{$L$} &
+\multicolumn{1}{|c|}{$L^*$} &
+\multicolumn{1}{c|}{$a^*$} &
+\multicolumn{1}{c|}{$b^*$}&
+\multicolumn{1}{c|}{\small Chroma}&
+	 \multicolumn{1}{c|}{Hue}&
+	 \multicolumn{1}{|c|}{\smash{\raisebox{0.5em}{$dE$}}}
+			\\\hline
+%47.8	84.8	34.7	47.8	91.6	22.2
+    $0$&$100$ &$52$ &$47.8$ &$	84.8$ &  $34.7$ & $91.6$&$22.2$&4.8676\\\hline
+%89.6	-1.8	163.8	89.6	163.8	90.6
+  $60$&$100$ &$52$ &$89.6$ & $-1.8$ & $163.8$ &$163.8$ &$90.6$&4.9344\\\hline
+%35.1	-16.3	-18.7	35.1	24.8	228.8
+ $120$&$100$ &$52$ &$50.9$ &$-60.9$ & $14.9$ &$62.7$ &$166.2$&4.8462\\\hline
+%70.3	-37.3	-45.0	70.3	58.4	230.3
+	 $180$&$100$ &$54$ &$70.3$ &$-37.3$&$-45.0$ &$58.4$ &$230.3$&2.9714\\\hline
+%34.8	12.6	-64.4	34.8	65.6	281.0
+$240$&$100$ &$54$ &$34.8$ &$12.6$ & $-64.4$ &$65.6$ &$281.0$&3.7926\\\hline
+%66.1	67.4	-25.1	66.1	71.9	339.5
+  $300$&$100$ &$54$ &$66.1$ &$67.4$ &$-25.1$ &$71.9$ &$339.5$&2.8757\\\hline
+	\end{tabular}
+	 \end{center}
+}
   \headerbox{Conclusion}
  {name=conclusion,column=2,below=results,span=2}
-{The colors of the samples were
- evaluated in the L*a*b* color space by a colorimeter. The background
- color and circle brightness in the reference image are 80 and 60,
- respectively. When the samples' brightness of the background color were
- 40, approximately 6.6 differences were obtained. }
-\headerbox{References}{name=references,column=2,span=2,above=bottom}{
+{In all cases, the  colors of the circles in dark background are
+ brighter than those in bright background. Their differences of the
+ luminence are about 5. When the samples' brightness of the background
+ color were 
+ 60, approximately 4 differences were obtained.}
+\headerbox{References}{name=references,column=2,span=2,below=conclusion}{
     \smaller
     \vspace{-0.4em}
     \bibliographystyle{ieee}

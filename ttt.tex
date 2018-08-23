@@ -1,0 +1,289 @@
+\documentclass[portrait,final,a0paper]{baposter}
+%\documentclass[a4shrink,portrait,final]{baposter}
+% Usa a4shrink for an a4 sized paper.
+
+\tracingstats=2
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{bm}
+
+\usepackage{multicol}
+
+\usepackage{pgfbaselayers}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\usepackage{times}
+\usepackage{helvet}
+%\usepackage{bookman}
+%\usepackage{palatino}
+
+\newcommand{\captionfont}{\footnotesize}
+
+
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{0.7em}
+\setlength{\columnseprule}{0mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ShowFig}[3]{%
+\begin{center}
+ \includegraphics[height=0.15\textheight]{#1.png}
+\\
+\refstepcounter{figure}\label{#3}%
+{Figure \arabic{figure}: #2}
+\end{center}
+}
+\newcommand{\ShowFigS}[4]{%
+\def\SSS{#2}
+  \begin{center}
+   \displayFigs#1\relax
+\\
+\refstepcounter{figure}\label{#4}%
+{Figure \arabic{figure}: #3}
+  \end{center}
+}
+\newcommand{\displayFigs}[1]{
+\ifx#1\relax\relax\else
+ \includegraphics[height=\SSS\textheight]{#1.png}\expandafter\displayFigs
+ \fi
+} 
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+\iftrue
+\selectcolormodel{cmyk}
+
+\definecolor{lightgray}{cmyk}{0,0,0,0.1}
+\definecolor{yellow}{cmyk}{0,0,0.9,0.0}
+\definecolor{reddishyellow}{cmyk}{0,0.22,1.0,0.0}
+\definecolor{black}{cmyk}{0,0,0.0,1.0}
+\definecolor{darkYellow}{cmyk}{0,0,1.0,0.5}
+\definecolor{darkSilver}{cmyk}{0,0,0,0.1}
+
+\definecolor{lightyellow}{cmyk}{0,0,0.3,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.1,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.1,0.0}
+\definecolor{lightestyellow}{cmyk}{0,0,0.05,0.0}
+\else
+\selectcolormodel{rgb}
+
+\definecolor{lightgray}{rgb}{0.95,0.95,0.9}%%
+\definecolor{yellow}{rgb}{1,1,0.0}%%
+\definecolor{reddishyellow}{rgb}{1,0.9,0}
+\definecolor{black}{rgb}{0,0,0.0}%%
+\definecolor{darkYellow}{rgb}{0.8,0.8,0}
+\definecolor{darkSilver}{rgb}{0,0,0}
+
+\definecolor{lightyellow}{rgb}{1.000,1.000,0.878}%%
+\definecolor{lighteryellow}{rgb}{1,1,0.9}
+\definecolor{lightestyellow}{rgb}{1,1,0.95}
+\fi
+%%
+\typeout{Poster Starts}
+\iffalse\else
+\background{
+  \begin{tikzpicture}[remember picture,overlay]%
+    \draw (current page.north west)+(-2em,2em) node[anchor=north west] {\includegraphics[height=1.1\textheight]{silhouettes_background}};
+  \end{tikzpicture}%
+}
+\fi
+\newlength{\leftimgwidth}
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=no,
+  columns=4,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=lightgray,
+  bgColorTwo=lighteryellow,
+  borderColor=reddishyellow,
+  headerColorOne=yellow,
+  headerColorTwo=reddishyellow,
+  headerFontColor=black,
+  boxColorOne=lightyellow,
+  boxColorTwo=lighteryellow,
+  % Format of textbox
+  textborder=roundedleft,
+%  textborder=rectangle,
+  % Format of text header
+  eyecatcher=no,
+  headerborder=open,
+  headerheight=0.115\textheight,
+  headershape=roundedright,
+  headershade=shade-lr,%plain,
+  headerfont=\Large\textsf, %Sans Serif
+  boxshade=shade-lr,%plain,
+%
+  background=shade-tb,
+%  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+  {%\includegraphics[width=10em]{D1077}% No eye catcher for this
+ %poster. (eyecatcher=no above). If an eye catcher is present, the title
+ %is centered between eye-catcher and logo.
+ }
+  % Title
+  {%\sf %Sans Serif
+  %
+\bf% Serif
+ \vspace*{2em}
+ \Huge
+ \hspace*{1em}\protect\scalebox{1.5}{Increase amount of brightness}\\
+ \hspace*{2em}\protect\scalebox{1.5}{in comparison of brightness}
+\vspace{-0.6em}
+ }
+  % Authors
+  {\sf %Sans Serif
+  % Serif
+\begin{center}
+\begin{minipage}[b][0em]{5em}
+\raisebox{-3\baselineskip}%
+%{\includegraphics[width=\textwidth]{./images/ouchi-anag.png}}%
+{}\end{minipage}
+\begin{minipage}[t]{0.8\textwidth}
+\begin{center}
+\hspace*{2em}Teluhiko Hilano
+(Kanagawa Institute of Technology)\\
+ %\hspace*{2.5em}
+ hilano@ic.kanagawa-it.ac.jp
+\end{center}
+\end{minipage}
+\end{center}
+  }
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack
+ % because of the L shaped logo.
+\includegraphics[width=10em]{./kait-logo.png}
+    }
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+ \headerbox{An Effect of Contrast}{name=contrast,column=0,row=0,span=2}{%
+The appearance of a color depends on the colors near it. In two squares
+ with center circles of the same color , the brightness of the circles
+ will appear to differ depending on the brightness of their
+ backgrounds. 
+
+ \ShowFigS{{fig-0-50}{fig-90-50}}{0.1}{An effect of contrast}{contrast}
+ The brighter the background, the darker its circle
+ appears.
+
+ In this research, we want to quantify perception of the difference in the
+ brightness of the circles.}
+ \headerbox{The experimental way}
+ {name=sample,column=0,below=contrast,span=2}
+ {
+ We prepared many printed samples with center
+ circles of varying brightness. The size of the sample is 8 cm and the
+ diameter of the circle is 5 cm. The background colors are black and
+ lightgray(90\% brightness) and the brightness of the center circles are
+ from 40\% to 60\% in every 2\% by HSL color value\cite{HSL}.
+ These samples are printed by Epson PX5002 inkjet printer on the paper
+ Epson Crispia.
+
+\ShowFigS{{fig-0-50}}{0.1}{The refference Figure}{fig1}
+\ShowFigS{{fig-90-52}{fig-90-54}{fig-90-56}}{0.1}{Example of
+ Samples(gray of brightness 52\%, 54\% and 56\%)}{fig2}
+The brightness of the backgrounds in Figures\ref{fig1} and \ref{fig2}
+ are $0\%$ and $90\%$, respectively. 
+ 
+ We showed these samples to subjects and
+ asked them to select a sample whose center circle has the same center
+ brightness as the reference image. }
+  \headerbox{Measurement of Colors}
+ {name=sample,column=0,below=sample,span=2}
+ {Since the printed color depends on the equipmnts,
+ we have measured the colors of athe samples by a colorimeter
+ TCD100\cite{TCD100}. The colore differences are culculaed by Excel
+ datasheet given by \cite{CIEDE2000}.
+  \begin{center}
+\refstepcounter{table}Table \arabic{table}: Color Values of the circles in
+   Figure \ref{fig2}\\
+ \begin{tabular}[t]{|*{7}{r|}}\hline
+\multicolumn{1}{|c|}{$H$} &
+\multicolumn{1}{c|}{$S$} &
+\multicolumn{1}{c|}{$L$} &
+\multicolumn{1}{|c|}{$L^*$} &
+\multicolumn{1}{c|}{$a^*$} &
+\multicolumn{1}{c|}{$b^*$} &
+\multicolumn{1}{|c|}{$dE$} \\\hline
+  $0$&$0$ &$50$ &$-$ &$-$ & $-$& $0$\\\hline
+  $0$&$0$ &$52$ & & & & \\\hline
+  $0$&$0$ &$54$ & & & & \\\hline
+  $0$&$0$ &$56$ & & & & \\\hline
+ \end{tabular}
+\end{center}
+}
+  \headerbox{Results}
+ {name=results,column=2,row=0,span=2}{}
+  \headerbox{Conclusion}
+ {name=conclusion,column=2,below=results,span=2}
+{The colors of the samples were
+ evaluated in the L*a*b* color space by a colorimeter. The background
+ color and circle brightness in the reference image are 80 and 60,
+ respectively. When the samples' brightness of the background color were
+ 40, approximately 6.6 differences were obtained. }
+\headerbox{References}{name=references,column=2,span=2,above=bottom}{
+    \smaller
+    \vspace{-0.4em}
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.4em}
+       \bibitem{CIEDE2000}G. Sharma, W. Wu,E. N. Dalal,
+               The CIEDE2000 Color-Difference Formula:
+               Implementation Notes, Supplementary Test Data, and
+               Mathematical Observations, COLOR research and
+               application, pp.21-30, Vol.30, 2005
+       \bibitem{HSL}W3C, CSS Color Module Level 3,
+               https://www.w3.org/TR/css-color-3/\#hsl-color
+       \bibitem{TCD100}TCD100,
+       https://www.pce-instruments.com/f/english/media/colorimeter-catalog.pdf
+       \bibitem{Ninio}Jacques Ninio, {\em The Science of Illusions}, Cornell
+	       University Press, New York, 2001 
+      \end{thebibliography}
+  }
+\end{poster}
+\end{document}

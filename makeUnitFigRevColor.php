@@ -5,14 +5,18 @@ $BGL = 0;
 $CH =  0;
 $CS =  0;
 $no = 0;
-$BGLs = [00,30,60,80];
+$BGLs = [00,80];
+$CHs = [0,60, 120, 180, 240, 300];
+$CSs = [100];
+for($k=0;$k<count($CHs);$k++){
+for($kk=0;$kk<count($CSs);$kk++){
 for($i=0; $i<count($BGLs);$i++) {
   $BGH = $BGC = 0;
   $BGL = $BGLs[$i];
-  for($j = 40; $j <=60; $j+=2) {
+  for($j = 50; $j <=60; $j+=2) {
 //    if($i==$j) continue;
-    $CH = 0;
-		$CS = 95;
+    $CH = $CHs[$k];
+		$CS = $CSs[$kk];
   	$CL= $j;
     $filename = "fig-$BGL-$CH-$CS-$CL.eps";
     print '\Fig{'. $filename ."}\n";
@@ -89,6 +93,8 @@ _EOL_
 fclose($fp);
 $no++;
 if($no%2==0) print '\newline'."\n";
+}
+}
 }
 }
 ?>
